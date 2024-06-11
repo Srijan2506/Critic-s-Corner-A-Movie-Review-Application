@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: grey;
+        }
+        .form-control {
+            background-color: #333;
+            color: grey;
+        }
+        .form-control::placeholder {
+            color: lightgrey;
+        }
+        .btn-primary {
+            background-color: grey;
+            border-color: grey;
+        }
+        .btn-primary:hover {
+            background-color: darkgrey;
+            border-color: darkgrey;
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 100px;
+        }
+        .form-group label {
+            color: lightgrey;
+        }
+        .toggle-password {
+            cursor: pointer;
+            color: lightgrey;
+            float: right;
+            margin-right: 10px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 2;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Login</h2>
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">Show</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="mt-2 text-center">Don't have an account? <a href="/register" style="color: grey;">Sign Up here</a></p>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var
+            passwordField = document.getElementById('password');
+            var toggleButton = document.querySelector('.toggle-password');
+            if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleButton.textContent = 'Hide';
+            } else {
+            passwordField.type = 'password';
+            toggleButton.textContent = 'Show';
+            }
+            }
+            </script>
+
+            </body>
+            </html>

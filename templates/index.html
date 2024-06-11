@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Critic's Corner</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-results-table {
+            margin-top: 20px;
+        }
+
+        .search-results-table th, .search-results-table td {
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #444;
+        }
+
+        a.nav-link, a.nav-link:hover {
+            color: #fff;
+        }
+
+        .btn-outline-success {
+            color: #fff;
+            border-color: #28a745;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+            <a class="navbar-brand" href="/">Critic's Corner</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/watchlist">Movielist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/watchlistItemForm">Post a review</a>
+                    </li>
+                </ul>
+                <!-- Add login and register links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">sign Up</a>
+                    </li>
+                </ul>
+                
+                <form class="form-inline my-2 my-lg-0" action="/search" method="get">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            
+            </div>
+        </nav>
+
+        <!-- Movie posters displayed side by side -->
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="movie-poster">
+                    <img src="https://image.tmdb.org/t/p/original/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="John Wick Poster">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="movie-poster">
+                    <img src="https://images-cdn.ubuy.co.in/6345f652ec87e81aa558cd24-ubuy-online-shopping.jpg" alt="Joker Poster">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="movie-poster">
+                    <img src="https://i.ebayimg.com/images/g/Fq8AAOSwo81ktDOD/s-l1200.jpg" alt="Deadpool Poster">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="movie-poster">
+                    <img src="https://image.tmdb.org/t/p/original/czembW0Rk1Ke7lCJGahbOhdCuhV.jpg" alt="Dune Part 2 Poster">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="mt-4">Welcome to the Critic's Corner application!</h2>
+            <br>
+            <h5>At Critic's Corner, we're passionate about movies, and we're thrilled to have you join our community of cinephiles. Whether you're a casual moviegoer or a dedicated film enthusiast, Critic's Corner is your go-to destination for discovering, reviewing, and discussing all things cinema.</h5>
+        </div>
+
+        <!-- Search Results -->
+        <div th:if="${movie}">
+            <h2>Search Results</h2>
+            <table class="table table-striped search-results-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Rating</th>
+                        <th>Trailer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${movie.title}"></td>
+                        <td th:text="${movie.rating}"></td>
+                        <td th:if="${trailerUrl}">
+                            <a th:href="${trailerUrl}" target="_blank">Watch Trailer</a>
+                        </td>
+                        <td th:if="${trailerUrl == null}">
+                            No trailer available
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Critic's Corner. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

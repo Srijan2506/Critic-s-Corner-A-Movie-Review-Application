@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+        }
+        .movie-poster img {
+            width: 100%; /* Ensure the image scales within its container */
+            max-width: 200px; /* Maintain the maximum width */
+            height: auto;
+            border-radius: 10px;
+        }
+        .movie-details {
+            margin-top: 20px;
+        }
+        .review-section {
+            margin-top: 30px;
+        }
+        .review-section h3, .review-section ul, .review-section form {
+            margin-top: 20px;
+        }
+        .alert-info {
+            color: #333;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="my-4">Movie Details</h2>
+        <div th:if="${message}">
+            <p th:text="${message}" class="alert alert-info"></p>
+        </div>
+        <div th:if="${title}">
+            <div class="row">
+                <div class="col-md-4 movie-poster">
+                    <img th:src="${posterUrl}" alt="Movie Poster">
+                </div>
+                <div class="col-md-8">
+                    <div class="movie-details">
+                        <h3 th:text="${title}"></h3>
+                        <p th:text="'Rating: ' + ${rating}"></p>
+                        <p th:text="${plot}"></p>
+                        <p th:text="${review}"></p>
+                        <a th:href="${trailerUrl}" target="_blank" class="btn btn-primary">Watch Trailer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="review-section">
+                <h3>Post a Review</h3>
+                <form th:action="@{/addReview}" method="post">
+                    <input type="hidden" name="movieTitle" th:value="${title}">
+                    <div class="form-group">
+                        <textarea class="form-control" name="reviewText" rows="3" placeholder="Write your review here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+            <div class="review-section">
+                <h3>Reviews</h3>
+                <ul class="list-unstyled">
+                    <li th:each="review : ${reviews}">
+                        <strong th:text="${review.movieTitle}"></strong>: <span th:text="${review.reviewText}"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
