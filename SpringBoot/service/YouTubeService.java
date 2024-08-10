@@ -1,4 +1,4 @@
-package com.example.SpringBoot.service;
+package com.example.srijanshukla.SpringBoot.service;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
