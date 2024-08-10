@@ -1,4 +1,4 @@
-package com.example.SpringBoot.controller;
+package com.example.srijanshukla.SpringBoot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
