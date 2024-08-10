@@ -1,4 +1,4 @@
-package com.example.SpringBoot.validations;
+package com.example.srijanshukla.SpringBoot.validations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
