@@ -1,4 +1,4 @@
-package com.example.SpringBoot.entity;
+package com.example.srijanshukla.SpringBoot.entity;
 
 
 
