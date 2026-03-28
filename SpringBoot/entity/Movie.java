@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.example.SpringBoot.validations.Priority;
-import com.example.SpringBoot.validations.Rating;
+import com.example.srijanshukla.SpringBoot.validations.Priority;
+import com.example.srijanshukla.SpringBoot.validations.Rating;
 
 @Entity
 public class Movie {
@@ -61,3 +61,4 @@ public class Movie {
 	}
 	
 }
+
