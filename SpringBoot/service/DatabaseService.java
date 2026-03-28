@@ -1,13 +1,12 @@
-packagecom.example.srijanshukla.SpringBoot.service;
+package com.example.srijanshukla.SpringBoot.service;
 
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.SpringBoot.entity.Movie;
-import com.example.SpringBoot.repository.MovieRepo;
+import com.example.srijanshukla.SpringBoot.entity.Movie;
+import com.example.srijanshukla.SpringBoot.repository.MovieRepo;
 
 @Service
 public class DatabaseService {
