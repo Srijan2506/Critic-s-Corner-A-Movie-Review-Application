@@ -1,4 +1,4 @@
-package com.example.SpringBoot.config;
+package com.example.srijanshukla.SpringBoot.config;
 
 
 
@@ -15,3 +15,4 @@ public class PasswordEncoderConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
