@@ -1,7 +1,5 @@
 package com.example.srijanshukla.SpringBoot.entity;
 
-
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -76,3 +74,4 @@ public class User implements UserDetails {
         return true;
     }
 }
+
