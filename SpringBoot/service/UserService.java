@@ -1,13 +1,7 @@
 package com.example.srijanshukla.SpringBoot.service;
 
-
-
-
-
-
-
-import com.example.SpringBoot.entity.User;
-import com.example.SpringBoot.repository.UserRepository;
+import com.example.srijanshukla.SpringBoot.entity.User;
+import com.example.srijanshukla.SpringBoot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -48,3 +42,4 @@ public class UserService implements UserDetailsService {
                 .build();
     }
 }
+
